@@ -20,8 +20,7 @@
     "express-jwt": "^3.3.0",
     "express-winston": "^1.2.0",
     "jsonwebtoken": "^5.7.0",
-    "mongodb": "~2.0.33",
-    "monk": "~1.0.1",
+    "mongodb": "*",
     "winston": "^2.1.1"
   }
 }

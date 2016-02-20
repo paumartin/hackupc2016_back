@@ -9,9 +9,19 @@ var cors = require('cors');
 var config = require('./backend/config');
 var routers = require('./backend/routers');
 
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/feed');
+var MongoClient = require('mongodb').MongoClient;
+
+var db;
+
+MongoClient.connect("mongodb://localhost:27017/feed", function(err, database) {
+	if(err){
+		throw err;
+	} else {
+    console.log("connected!");
+		db = database;
+	}
+});
+
 
 var app = express();
 app.use(expressWinston.logger(config.WINSTON_LOGGER_OPTS));
