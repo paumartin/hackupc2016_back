@@ -57,3 +57,16 @@ router.get('/getList', function(req, res) {
     }
   });
 });
+
+router.post('/delete', function(req, res) {
+  if (!req.body._id) {
+    res.status(500).send("fields");
+    return;
+  }
+  var collection = req.db.collection('menu');
+  var o_id = mongo.ObjectID(req.body._id);
+  collection.remove({ _id : o_id }, function(err, result) {
+    if (err) res.status(500).json(err);
+    else res.status(200).json(result);
+  });
+});

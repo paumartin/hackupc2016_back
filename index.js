@@ -37,6 +37,7 @@ app.use(function(req,res,next){
 
 app.use('/plat', routers.plat);
 app.use('/menu', routers.menu);
+app.use('/users', routers.user);
 
 // app.get('*', function(req, res) { res.sendFile(__dirname + '/frontend/index.html'); })
 // app.all('*', function(req, res) { res.status(404).send("Recurso no encontrado"); });
