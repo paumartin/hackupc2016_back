@@ -12,7 +12,7 @@ router.post('/save', function(req, res) {
   var collection = db.collection('plat');
   collection.insert({
     "nom" : req.body.nom,
-    "descipcio" : req.body.descripcio,
+    "descripcio" : req.body.descripcio,
     "ingredients" : req.body.ingredients,
     "foto" : req.body.foto
   }, function(err, doc) {
