@@ -2,7 +2,7 @@ var winston = require('winston');
 
 module.exports = {
     PORT: 8080,
-    DB_URI: "mongodb://localhost/apunts",
+    DB_URI: "mongodb://localhost/feed",
     WINSTON_LOGGER_OPTS: {
         transports: [
             new winston.transports.Console({

@@ -21,6 +21,11 @@ app.use(expressWinston.logger(config.WINSTON_LOGGER_OPTS));
 app.use(compression());
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/frontend'));
 
-// app.get('*', function(req, res) { res.sendFile(__dirname + '/frontend/index.html'); })
+// app.use('/plat', routers.plat);
+
+app.get('*', function(req, res) { res.sendFile(__dirname + '/frontend/index.html'); })
 app.all('*', function(req, res) { res.status(404).send("Recurso no encontrado"); });
+
+http.createServer(app).listen(config.PORT);
