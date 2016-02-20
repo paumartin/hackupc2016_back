@@ -10,5 +10,10 @@ router.post('/save', function(req, res) {
     return;
   }
   var plat = new Plat(req.body);
-  res.status(200).json(plat);
+  plat.save(function(err, plat2) {
+    if (err) res.status(500).json(err);
+    else {
+      res.status(200).json(plat2);
+    }
+  });
 });
