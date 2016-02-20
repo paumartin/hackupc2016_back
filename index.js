@@ -29,6 +29,8 @@ app.use(compression());
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use(express.static(__dirname + '/uploads'));
+
 app.use(function(req,res,next){
   req.db = db;
   next();
@@ -37,5 +39,7 @@ app.use(function(req,res,next){
 app.use('/plat', routers.plat);
 app.use('/menu', routers.menu);
 app.use('/users', routers.user);
+
+app.get('*', function(req, res) { console.log(__dirname + req.originalUrl); res.sendFile(__dirname + req.originalUrl); })
 
 http.createServer(app).listen(config.PORT);
